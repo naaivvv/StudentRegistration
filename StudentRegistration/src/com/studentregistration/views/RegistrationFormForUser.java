@@ -36,7 +36,7 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         lblWelcome.setText("Welcome, " + user);
         this.userS = user;
         lblgetID.setText(id);
-        //lblgetID.setFont(new java.awt.Font("Lucida Grande", 1, 0));
+        lblgetID.setFont(new java.awt.Font("Lucida Grande", 1, 0));
         this.idS = id;
         
     }
@@ -383,7 +383,6 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         } else { // select record for deletion
             int selRow = tblUserList.getSelectedRow();
             userIdNo = tblUserList.getValueAt(selRow, 0).toString();
-            lblCompID.setText(userIdNo);
             if(userIdNo.equalsIgnoreCase(idS)){
                 isUser = true;
             }else{

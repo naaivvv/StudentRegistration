@@ -471,6 +471,7 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
 
     private void menuManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuManageProfileActionPerformed
         new ManageProfile(userS, idS).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_menuManageProfileActionPerformed
 
     private void menuUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUserActionPerformed

@@ -548,6 +548,7 @@ public class RegistrationForm extends javax.swing.JFrame {
 
     private void menuManageProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuManageProfileActionPerformed
             new ManageProfile(userS, idS).setVisible(true);
+            this.setVisible(false);
             
     }//GEN-LAST:event_menuManageProfileActionPerformed
 
@@ -625,6 +626,7 @@ private void Reset() {
     txtIDNo.requestFocus();
     isEdit = false;
 }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbGender;

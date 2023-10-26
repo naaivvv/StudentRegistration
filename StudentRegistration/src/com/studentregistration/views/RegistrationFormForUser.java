@@ -415,7 +415,7 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         }
         }else{
             JOptionPane.showMessageDialog(null,
-        "Error in Deleting user, currently logged on.", " Delete Eror"
+        "Error in deleting user, currently logged on.", " Delete Eror"
                     , JOptionPane.ERROR_MESSAGE);
         }
         

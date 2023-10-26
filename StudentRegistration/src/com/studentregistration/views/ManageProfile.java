@@ -194,6 +194,9 @@ public class ManageProfile extends javax.swing.JFrame {
         UserController userController = new UserController();
         userController.updateUser(user);
         LoadUpdateUser();
+        dispose();
+            LoginForm login = new LoginForm();
+            login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

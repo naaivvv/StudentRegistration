@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RegistrationFormForUser extends javax.swing.JFrame {
     private boolean isEdit = false;
+    private boolean isUser = false;
     private String userIdNo = null;
     String userS;
     String idS;
@@ -35,8 +36,9 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         lblWelcome.setText("Welcome, " + user);
         this.userS = user;
         lblgetID.setText(id);
-        lblgetID.setFont(new java.awt.Font("Lucida Grande", 1, 0));
+        //lblgetID.setFont(new java.awt.Font("Lucida Grande", 1, 0));
         this.idS = id;
+        
     }
 
     /**
@@ -66,6 +68,7 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         lblgetID = new javax.swing.JLabel();
+        lblCompID = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuStudent = new javax.swing.JMenu();
         menuUser = new javax.swing.JMenu();
@@ -254,20 +257,24 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtPW, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                            .addComponent(txtUN, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addComponent(txtIDNo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFN))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtPW, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                .addComponent(txtUN, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton2))
+                                .addComponent(txtIDNo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFN))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblCompID)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -321,9 +328,11 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
-                            .addComponent(jButton1)))
+                            .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCompID))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(lblgetID)
                 .addContainerGap())
         );
@@ -374,6 +383,12 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         } else { // select record for deletion
             int selRow = tblUserList.getSelectedRow();
             userIdNo = tblUserList.getValueAt(selRow, 0).toString();
+            lblCompID.setText(userIdNo);
+            if(userIdNo.equalsIgnoreCase(idS)){
+                isUser = true;
+            }else{
+                isUser = false;
+            }
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_tblUserListMouseClicked
@@ -387,7 +402,8 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int response = JOptionPane.showConfirmDialog(null,
+        if(!isUser){
+            int response = JOptionPane.showConfirmDialog(null,
         "Are you sure you want to delete this record?", "Confirm Delete",
         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
@@ -397,6 +413,13 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         jButton3.setEnabled(false);
         userIdNo = null;
         }
+        }else{
+            JOptionPane.showMessageDialog(null,
+        "Error in Deleting user, currently logged on.", " Delete Eror"
+                    , JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtSearchStringKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchStringKeyPressed
@@ -490,7 +513,7 @@ public class RegistrationFormForUser extends javax.swing.JFrame {
         });
     }
 
-private void LoadUsers() {
+public void LoadUsers() {
     UserController userController = new UserController();
     List<User> list = userController.userList();
     DefaultTableModel model = (DefaultTableModel) tblUserList.getModel();
@@ -530,6 +553,7 @@ private void Reset() {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCompID;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lblgetID;
     private javax.swing.JCheckBoxMenuItem menuDarkMode;

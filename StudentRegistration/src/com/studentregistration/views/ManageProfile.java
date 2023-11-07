@@ -79,14 +79,14 @@ public class ManageProfile extends javax.swing.JFrame {
 
         jLabel5.setText("Fullname:");
 
-        jButton1.setText("Update");
+        jButton1.setText("UPDATE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Reset");
+        jButton2.setText("RESET");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -100,7 +100,7 @@ public class ManageProfile extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Cancel");
+        jButton4.setText("CANCEL");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);

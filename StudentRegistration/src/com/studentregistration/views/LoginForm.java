@@ -7,6 +7,7 @@ package com.studentregistration.views;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightIJTheme;
 import com.studentregistration.controllers.UserController;
 import com.studentregistration.models.User;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.Map;
@@ -23,6 +24,11 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
+        Font font = lblCreateAcc.getFont();
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        lblCreateAcc.setFont(font.deriveFont(attributes));
+        lblCreateAcc.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     /**
@@ -136,7 +142,7 @@ public class LoginForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(lblCreateAcc)))
-                .addGap(308, 308, 308))
+                .addGap(293, 293, 293))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,11 +226,7 @@ public class LoginForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginForm().setVisible(true);
-                JLabel lblCreateAcc = new JLabel("No Account yet? Create here.");
-        Font font = lblCreateAcc.getFont();
-        Map attributes = font.getAttributes();
-        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        lblCreateAcc.setFont(font.deriveFont(attributes));
+                
             } 
         });
         

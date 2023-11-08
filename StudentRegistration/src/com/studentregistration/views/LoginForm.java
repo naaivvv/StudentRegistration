@@ -61,6 +61,12 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel3.setText("Password:");
 
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +210,10 @@ public class LoginForm extends javax.swing.JFrame {
         new CreateAccount().setVisible(true);
             this.setVisible(false);
     }//GEN-LAST:event_lblCreateAccMouseClicked
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments

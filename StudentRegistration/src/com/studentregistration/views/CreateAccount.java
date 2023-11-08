@@ -190,6 +190,9 @@ public class CreateAccount extends javax.swing.JFrame {
         user.setFullname(fn);
         UserController userController = new UserController();
         userController.saveUser(user);
+         LoginForm login = new LoginForm();
+         login.setVisible(true);
+         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
